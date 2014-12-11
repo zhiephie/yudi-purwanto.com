@@ -1,0 +1,994 @@
+@charset "utf-8";
+/*RESET*/
+html,body{margin:0;padding:0;background:#fff;font-family:Arial, Helvetica, sans-serif;font-size:62.5%;line-height:1.2;color:#70767d;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
+body{font-size:1.0em;} /*Não alterar o valor*/
+input, select, button, textarea{font-size:1.1em;font-family:Arial, Helvetica, sans-serif;}
+a{color:#70767d;}
+a{text-decoration:underline;} a:hover{color:#ff7707;text-decoration:none;}
+a:hover, a:active/*, a:focus*/{outline:0;}
+img{border:0;}
+/*input,input[disabled]{overflow:visible;font-size:15px;}
+input::-moz-focus-inner{border:0px;padding:0px;}
+input[type=radio]{vertical-align:middle;}
+input[type=checkbox]{width:13px;height:13px;margin:0;padding:0;}*/
+.clearfix{zoom:1;} .clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;} .pDown{clear:both;}
+.block{display:block;} .pos_esq{float:left;} .pos_dir{float:right;} .pos_rel{position:relative;} .pos_abs{position:absolute;} .pos_fix{position:fixed;}
+table{border-collapse:collapse;border-spacing:0}
+/*END RESET*/
+/* Typography - http://pxtoem.com/ */
+
+/* webfonts for font "Titillium Web" */
+@font-face{font-family:'TitilliumText25L800wt';src:url('fonts/TitilliumText25L001-webfont.eot');src:url('fonts/TitilliumText25L001-webfontd41d.eot?#iefix') format('embedded-opentype'), url('fonts/TitilliumText25L001-webfont.woff') format('woff'), url('fonts/TitilliumText25L001-webfont.ttf') format('truetype'), url('fonts/TitilliumText25L001-webfont.svg#TitilliumText25L800wt') format('svg');font-weight:normal;font-style:normal;}
+@font-face{font-family:'TitilliumText25L600wt';src:url('fonts/TitilliumText25L002-webfont.eot');src:url('fonts/TitilliumText25L002-webfontd41d.eot?#iefix') format('embedded-opentype'), url('fonts/TitilliumText25L002-webfont.woff') format('woff'), url('fonts/TitilliumText25L002-webfont.ttf') format('truetype'), url('fonts/TitilliumText25L002-webfont.svg#TitilliumText25L600wt') format('svg');font-weight:normal;font-style:normal;}
+@font-face{font-family:'TitilliumText25L400wt';src:url('fonts/TitilliumText25L003-webfont.eot');src:url('fonts/TitilliumText25L003-webfontd41d.eot?#iefix') format('embedded-opentype'), url('fonts/TitilliumText25L003-webfont.woff') format('woff'), url('fonts/TitilliumText25L003-webfont.ttf') format('truetype'), url('fonts/TitilliumText25L003-webfont.svg#TitilliumText25L400wt') format('svg');font-weight:normal;font-style:normal;}
+@font-face{font-family:'TitilliumText25L999wt';src:url('fonts/TitilliumText25L-webfont.eot');src:url('fonts/TitilliumText25L-webfontd41d.eot?#iefix') format('embedded-opentype'), url('fonts/TitilliumText25L-webfont.woff') format('woff'), url('fonts/TitilliumText25L-webfont.ttf') format('truetype'), url('fonts/TitilliumText25L-webfont.svg#TitilliumText25L999wt') format('svg');font-weight:normal;font-style:normal;}
+
+/* webfonts for font "Ford Antenna" */
+@font-face{font-family:'FordAntennaRegular';src:url('fonts/fordantenna-regular-webfont.eot');src:local('FordAntennaRegular'), url('fonts/fordantenna-regular-webfont.woff') format('woff'), url('fonts/fordantenna-regular-webfont.ttf') format('truetype'), url('fonts/fordantenna-regular-webfont.svg#webfont3Ko8ZXQl') format('svg');font-weight:normal;font-style:normal;}
+@font-face{font-family:'FordAntennaBold';src:url('fonts/fordantenna-bold-webfont.eot');src:local('FordAntennaBold'), url('fonts/fordantenna-bold-webfont.woff') format('woff'), url('fonts/fordantenna-bold-webfont.ttf') format('truetype'), url('fonts/fordantenna-bold-webfont.svg#webfontBXgovnDp') format('svg');font-weight:normal;font-style:normal;}
+
+h1{font-size:2.2em;}
+h2{font-size:1.8em;}
+h3{font-size:1.4em;}
+h4{font-size:1.0em;}
+h5{font-size:0.8em;}
+h6{font-size:0.7em;}
+/*
+// Front-Office styles
+*/
+/*GERAL*/
+a:hover, input[type=submit]:hover, input[type=reset]:hover{-moz-transition:color .15s linear;-webkit-transition:color .15s linear;transition:color .15s linear;}
+.color1{color:#ff7707}
+.color2{color:#70767d}
+.title1{font-size:2.2em;font-weight:bold;text-transform:uppercase}
+.txt1{font-size:1.4em}
+
+.separator_bar{display:block;margin-top:16px;border-top:1px solid #d2d4d6}
+
+.ml_50{margin-left:50px}
+.pr_8{padding-right:8px}
+.pt_20{padding-top:20px}
+.pt_30{padding-top:30px}
+.pt_50{padding-top:50px}
+
+.ic_kms{text-indent:-99999px;display:inline-block;width:20px;height:20px;background:url(../img/ic_car_details.png) no-repeat 0 -1px}
+.ic_kms_hi{text-indent:-99999px;display:inline-block;width:20px;height:20px;background:url(../img/ic_car_details.png) no-repeat -20px -1px}
+.ic_year{text-indent:-99999px;display:inline-block;width:20px;height:20px;background:url(../img/ic_car_details.png) no-repeat 0 -21px}
+.ic_year_hi{text-indent:-99999px;display:inline-block;width:20px;height:20px;background:url(../img/ic_car_details.png) no-repeat -20px -21px}
+.ic_fuel{text-indent:-99999px;display:inline-block;width:20px;height:20px;background:url(../img/ic_car_details.png) no-repeat 0 -41px}
+.ic_fuel_hi{text-indent:-99999px;display:inline-block;width:20px;height:20px;background:url(../img/ic_car_details.png) no-repeat -20px -41px}
+.ic_register{text-indent:-99999px;display:inline-block;width:20px;height:20px;background:url(../img/ic_car_details.png) no-repeat 0 -81px}
+.ic_register_hi{text-indent:-99999px;display:inline-block;width:20px;height:20px;background:url(../img/ic_car_details.png) no-repeat -20px -81px}
+.ie7 .ic_kms, .ie7 .ic_kms_hi, .ie7 .ic_year, .ie7 .ic_year_hi, .ie7 .ic_fuel, .ie7 .ic_fuel_hi, .ie7 .ic_register, .ie7 .ic_register_hi, .ie8 .ic_kms, .ie8 .ic_kms_hi, .ie8 .ic_year, .ie8 .ic_year_hi, .ie8 .ic_fuel, .ie8 .ic_fuel_hi, .ie8 .ic_register, .ie8 .ic_register_hi{display:block;float:left}
+
+.ic_marker{text-indent:-99999px;display:inline-block;width:16px;height:16px;background:url(../img/ic_contacts.png) no-repeat 0 -32px}
+.ic_marker_hi{text-indent:-99999px;display:inline-block;width:16px;height:16px;background:url(../img/ic_contacts.png) no-repeat -16px -32px}
+.ic_telephone{text-indent:-99999px;display:inline-block;width:16px;height:16px;background:url(../img/ic_contacts.png) no-repeat 0 -48px}
+.ic_telephone_hi{text-indent:-99999px;display:inline-block;width:16px;height:16px;background:url(../img/ic_contacts.png) no-repeat -16px -48px}
+.ic_fax{text-indent:-99999px;display:inline-block;width:16px;height:16px;background:url(../img/ic_contacts.png) no-repeat 0 -16px}
+.ic_fax_hi{text-indent:-99999px;display:inline-block;width:16px;height:16px;background:url(../img/ic_contacts.png) no-repeat -16px -16px}
+.ic_email{text-indent:-99999px;display:inline-block;width:16px;height:16px;background:url(../img/ic_contacts.png) no-repeat 0 0}
+.ic_email_hi{text-indent:-99999px;display:inline-block;width:16px;height:16px;background:url(../img/ic_contacts.png) no-repeat -16px 0}
+
+.fb-like{float:left}
+.ic_share{cursor:pointer;text-indent:-99999px;display:block;float:left;width:16px;height:16px;background:url(../img/ic_contacts.png) no-repeat 0 -80px}
+.ic_share:hover{background-position:-16px -80px}
+.ic_print{cursor:pointer;text-indent:-99999px;display:block;float:left;width:16px;height:16px;background:url(../img/ic_contacts.png) no-repeat 0 -64px}
+.ic_print:hover{background-position:-16px -64px}
+.no-js .print_win{display:none}
+
+.g-plus-button{float:left}
+.ic_rss{display:block;float:left;width:24px;height:24px}
+.ic_rss:hover{background:url(../img/ic_rss_hi.png) no-repeat 0 0}
+.ic_rss:hover img{visibility:hidden}
+.ic_facebook{display:block;float:left;width:24px;height:24px}
+.ic_facebook:hover{background:url(../img/ic_facebook_hi.png) no-repeat 0 0}
+.ic_facebook:hover img{visibility:hidden}
+.ic_addthis{display:block;float:left;width:24px;height:24px}
+.ic_addthis:hover{background:url(../img/ic_addthis_hi.png) no-repeat 0 0}
+.ic_addthis:hover img{visibility:hidden}
+
+.stamp{display:block;/*pesquisa*//*float:left;*/position:relative;left:0;top:0}
+.small_forddirect{display:block;position:absolute;left:5px;bottom:5px;width:52px;height:52px;background:url(../img/small_stamp_forddirect.png) no-repeat left top}
+.big_forddirect{display:block;position:absolute;left:10px;bottom:10px;width:90px;height:90px;background:url(../img/big_stamp_forddirect.png) no-repeat left top}
+
+.bt_back{color:#fff;display:table!important;margin-top:30px;padding:0!important}
+.bt_back .caixa{float:none!important;display:table-cell!important}
+.bt_back:hover{color:#05447f}
+
+.bt_vertodos{color:#fff;margin-left:10px;border:1px solid #05447f;width:133px;background-color:#05447f}
+.bt_vertodos:hover{color:#05447f;background:#fff}
+
+.bt_contactar{color:#fff;border:1px solid #05447f;width:133px;background-color:#05447f}
+.bt_contactar:hover{color:#05447f;background:#fff}
+
+.bt_alerta{color:#ff7707;text-align:center;border:1px solid #ff7707;width:133px}
+.bt_alerta:hover{color:#fff;background:#ff7707}
+
+.bt_meus_alertas{color:#70767d;text-align:center;margin-top:1px;margin-right:8px;border:1px solid #b0b9c4;padding:2px 8px 2px 30px!important;background:url(../img/ic_euro.png) no-repeat 5px center}
+.bt_meus_alertas:hover{color:#fff;background:#ff7707 url(../img/ic_euro_hi.png) no-repeat 5px center}
+
+.bt_permitir{color:#fff;text-align:center;background:#ff7707}
+.bt_permitir:hover{color:#05447f;background:#fff}
+
+.bt_marcar{color:#fff;margin-left:10px;border:1px solid #05447f;width:133px;background:#05447f}
+.bt_comparar{color:#fff;margin-left:10px;border:1px solid #05447f;width:133px;background:#05447f}
+.bt_marcar:hover, .bt_comparar:hover{color:#05447f;background:#fff}
+
+.bt_adicionado{color:#fff;margin-left:10px;border:1px solid #ff7707;width:133px;background:#ff7707}
+.bt_adicionado:hover{color:#fff;background:#ff7707}
+
+.bt_redefinir{color:#fff;float:left;/*margin-left:33px;*/margin-top:30px;padding:0!important}
+.bt_redefinir:hover{color:#05447f}
+.bt_redefinir .caixa{padding:7px 24px!important}
+
+.form_submit{cursor:pointer;color:#fff;font-size:1.4em;font-weight:bold;text-align:center;text-decoration:none;text-transform:uppercase;display:block;margin-left:10px;border:1px solid #05447f;padding:12px 20px;width:147px;background-color:#05447f;
+-moz-border-radius:4px;
+-webkit-border-radius:4px;
+border-radius:4px;
+-moz-box-sizing:border-box;
+-webkit-box-sizing:border-box;
+box-sizing:border-box;}
+.form_submit:hover{color:#05447f;background:#fff}
+.form_reset{cursor:pointer;color:#fff;font-size:1.4em;font-weight:bold;text-align:center;text-decoration:none;text-transform:uppercase;display:block;border:1px solid #a5a5a5;padding:12px 20px;width:147px;background-color:#a5a5a5;
+-moz-border-radius:4px;
+-webkit-border-radius:4px;
+border-radius:4px;
+-moz-box-sizing:border-box;
+-webkit-box-sizing:border-box;
+box-sizing:border-box;}
+.form_reset:hover{color:#05447f}
+
+.bts{cursor:pointer;font-size:1.4em;font-weight:bold;text-align:center;text-decoration:none;text-transform:uppercase;display:block;padding:6px;/*height:39px;*/
+-moz-border-radius:4px;
+-webkit-border-radius:4px;
+border-radius:4px;
+-moz-transition:background .15s linear;-webkit-transition:background .15s linear;transition:background .15s linear;-moz-transition:color .15s linear;-webkit-transition:color .15s linear;transition:color .15s linear}
+.bts .canto{display:block;float:left;width:13px;height:46px;background:url(../img/ic_canto_redefinir_pesquisa.png) left center}
+.bts .caixa{font-weight:bold;text-align:center;text-decoration:none;text-transform:uppercase;vertical-align:middle;display:block;float:left;margin-left:-1px;padding:6px 24px;/*padding:7px 24px;*/width:87px;height:32px;background:#a5a5a5;
+-webkit-border-top-right-radius:4px;
+-webkit-border-bottom-right-radius:4px;
+-moz-border-radius-topright:4px;
+-moz-border-radius-bottomright:4px;
+border-top-right-radius:4px;
+border-bottom-right-radius:4px;}
+
+
+/* ESTRUTURA */
+.est{text-align:center;margin:0 auto;width:990px}
+.est > header, .est > .main_content, .est > footer{text-align:left}
+.est > .main_content{min-height:400px}
+
+.est > header{padding-top:12px}
+
+.est > header .logo{float:left;padding-left:5px;/*padding-left:30px;*/width:730px}
+.est > header .logo > a{float:left}
+.est > header .logo > .title{color:#ff7707;font-size:1.9em;text-transform:uppercase;overflow:hidden;padding-top:15px;/*padding-top:2px;*/padding-left:55px;font-family:'FordAntennaRegular', sans-serif}
+.est > header .logo > .title strong{color:#70767d;font-size:1.2em;font-family:'FordAntennaBold', sans-serif}
+
+.est > header .links{float:right;padding-top:20px}
+.est > header .links a{display:block;float:left;margin-left:5px}
+
+.est > footer{color:#666;margin-left:160px;margin-top:30px;border-top:1px solid #d2d4d6;padding:20px 0 40px}
+.est > footer .copy{font-size:1.2em;line-height:3.5;float:left}
+.est > footer .copy img{float:left;padding-right:10px}
+.est > footer .footer_menu{float:right;padding-top:13px}
+.est > footer .footer_menu > a:first-child{margin-left:0;border-left:none}
+.est > footer .footer_menu > a{color:#70767d;font-size:1.2em;text-decoration:none;float:left;margin-left:20px}
+.est > footer .footer_menu > a:hover, .est > footer .footer_menu > a.active{color:#ff7707}
+.est > footer .links{float:left;margin-top:-5px;padding-left:20px}
+.est > footer .links a{display:block;float:left;margin-left:5px}
+
+/*COOKIES*/
+.cookies_alert{color:#fff;font-size:1.2em;padding:10px 0;background-color:#05447f}
+.cookies_alert .est{text-align:left;overflow:hidden;padding-left:10px}
+.cookies_alert p{margin:7px 0 0}
+.cookies_alert a{color:#fff}
+.cookies_alert .bt_permitir{font-size:1.0em;margin-left:15px}
+.cookies_alert .close_mod_win{margin-left:15px;margin-top:2px}
+
+/* CONTEUDO */
+.content{float:right;margin-top:12px;width:830px}
+
+/*MAIN MENU*/
+.main_menu{float:left;margin-top:12px;width:160px}
+.main_menu nav.home{min-height:316px}
+.main_menu nav{margin-bottom:20px;padding-top:7px;min-height:140px;background-color:#70767d}
+.main_menu nav ul{margin:0;padding:0;list-style:none}
+.main_menu nav a{color:#fff;font-size:1.4em;font-weight:bold;text-decoration:none;text-transform:uppercase;display:block;padding:0 6px}
+.main_menu nav a > span{display:block;padding:4px 5px 4px 13px;background:url(../img/arrows.png) no-repeat 0 -42px;font-family:'TitilliumText25L600wt', sans-serif;font-weight:normal}
+.main_menu nav a:hover, .main_menu nav a.active{background-color:#ff7707}
+
+/*TOP MENU*/
+.top_menu{overflow:hidden;margin-top:25px;background-color:#70767d}
+.top_menu > a{color:#fff;font-size:1.6em;font-weight:bold;text-decoration:none;text-transform:uppercase;display:block;float:left;padding:8px 40px;font-family:'TitilliumText25L600wt', sans-serif;font-weight:normal}
+.top_menu > a:first-child:hover, .top_menu > a:first-child.active{float:left;overflow:visible}
+.top_menu > a:hover, .top_menu > a.active{float:none;overflow:hidden;background-color:#ff7707}
+
+/*FORM LOGIN*/
+.form_login{padding:0 20px 20px}
+.form_login fieldset, .form_login fieldset legend{text-align:left;margin:0;border:none;padding:0}
+.form_login fieldset legend > span, .form_login .tit_login{color:#c3c6c8;font-size:30px;font-weight:100;text-transform:uppercase;display:block;margin-bottom:5px}
+.form_login fieldset label{display:block;margin:0 0 10px;padding:5px 7px;background-color:#fff}
+.form_login fieldset label > span{display:none}
+.form_login fieldset input{color:#70767d;float:none;margin:0;border:none;padding:0;width:100%;background-color:transparent}
+.form_login a{color:#c4cdd6;font-size:1.1em;padding-left:10px;background:url(../img/arrows.png) no-repeat 0 -47px}
+.form_login .login-button{color:#fff;font-size:1.1em;font-weight:bold;text-transform:uppercase;float:none;margin:0;margin-bottom:10px;border:none;padding:5px 20px;background-color:#91969b;
+-moz-box-sizing:border-box;
+-webkit-box-sizing:border-box;
+box-sizing:border-box;}
+.form_login .my_area{color:#fff;font-size:1.1em;font-weight:bold;text-transform:uppercase;float:left;margin:0;border:none;padding:5px 7px;background-color:#05447f;
+-moz-box-sizing:border-box;
+-webkit-box-sizing:border-box;
+box-sizing:border-box;}
+.form_login .logout{color:#fff;font-size:1.1em;font-weight:bold;text-transform:uppercase;float:right;margin:0;border:none;padding:5px 7px;background-color:#91969b;
+-moz-box-sizing:border-box;
+-webkit-box-sizing:border-box;
+box-sizing:border-box;}
+.form_login .login-button:hover, .form_login .my_area:hover, .form_login .logout:hover{cursor:pointer;background-color:#ff7707}
+
+/*SEARCH TABs*/
+.search_tabs{margin-top:25px;border-bottom:5px solid #d2d4d6}
+.search_tabs > a{font-size:1.2em;font-weight:bold;text-align:center;text-decoration:none;text-transform:uppercase;display:block;float:left;border-right:1px solid #d2d4d6;padding:5px 10px;width:160px}
+.search_tabs > a:hover, .search_tabs > a.active{color:#fff;margin-bottom:-5px;border-right:1px solid #ff7707;border-bottom:5px solid #ff7707;background-color:#ff7707}
+
+/*SEARCH FORM*/
+.search_form{border-left:1px solid #d2d4d6;padding:30px}
+
+/*BREADCRUMB*/
+.bread{color:#70767d;font-size:0.9em;float:right;margin-top:0.5em/*margin-top:2.2em*/}
+.bread a{text-decoration:none}
+.bread a:hover{color:#ff7707}
+.bread > span{font-weight:bold}
+
+/*MAIN CONTENT*/
+.page_txt, .emptyList{font-size:1.2em;clear:both;/*overflow:hidden*//*;padding-bottom:30px*/}
+.page_txt h1{font-size:1.73em;text-transform:uppercase;font-family:'TitilliumText25L600wt', sans-serif;font-weight:normal}
+.page_txt h2{font-size:1.50em;font-family:'TitilliumText25L400wt', sans-serif;}
+.page_txt h3{font-size:1.16em}
+.page_txt h4{font-size:0.83em}
+.page_txt h5{font-size:0.66em}
+.page_txt h6{font-size:0.58em}
+.page_txt .txt1{font-size:1.16em}
+.page_txt img{display:block}
+.page_txt img.pos_esq{margin-right:20px;width:410px}
+.page_txt .bt_back{font-size:0.9em}
+
+/*TABLE*/
+.table thead{color:#70767d;font-size:1.6em;text-transform:uppercase;background-color:#e2e4e5}
+.table thead th:first-child{padding:15px;width:124px;font-family:'TitilliumText25L600wt', sans-serif;font-weight:normal}
+.table thead th, .table thead td{text-align:left;vertical-align:top;padding:10px 10px 10px 0;width:159px}
+.table thead img, .table tbody img{display:block;width:159px;height:119px}
+.table tbody tr:first-child > th, .table tbody tr:first-child + tr > th{font-size:1.4em;font-weight:bold;background-color:#70767d;width:124px}
+.table tbody tr:first-child > td, .table tbody tr:first-child + tr > td{color:#fff;font-size:1.4em;font-weight:bold;background-color:#b7babe;width:149px}
+.table tbody tr:first-child > td > a{color:#fff}
+.table tbody tr{background-color:#e5e5e5}
+.table tbody tr:nth-child(odd){background-color:#e5e5e5}
+.table tbody tr:nth-child(even){background-color:#dadada}
+.table tbody th{color:#fff;font-size:1.2em;text-align:left;vertical-align:top;background-color:#b7babe}
+.table tbody td{font-size:1.1em;text-align:center;border-top:1px solid #fff;padding:13px 10px}
+.table tbody th, .table tbody td{border-top:1px solid #fff;padding:13px 10px}
+.table tbody td ul{margin:0;padding:0;list-style:none}
+.table tbody td ul > li:first-child{padding-top:0}
+.table tbody td ul > li{padding-top:10px}
+
+/*FORM*/
+.form{margin-bottom:20px;border-left:1px solid #d4d3d9;border-top:5px solid #d4d3d9;border-bottom:1px solid #d4d3d9;padding:15px 0 25px 25px}
+.form fieldset{margin:0;border:none;padding:0}
+.form fieldset legend{padding:0}
+.form fieldset legend > strong, .form fieldset label > strong{display:inline-block;padding-bottom:5px}
+.form fieldset legend > strong, .form fieldset label > strong{font-size:1.2em}
+.form fieldset label > span{font-size:1.1em}
+.form fieldset .title{color:#ff7707;text-transform:uppercase}
+.form fieldset .hidden{text-indent:-99999px;float:left;height:1px}
+.car_specific .title{margin-left:5px}
+.car_specific label{margin-left:5px}
+.car_fuel .title{padding-top:18px}
+.car_fuel label{margin-right:5px;padding-bottom:18px}
+.car_fuel label, .car_specific label{cursor:pointer;text-align:center;float:left}
+.car_fuel label > span, .car_specific label > span{margin-bottom:12px}
+.car_fuel input, .car_specific input{position:absolute;left:-99999px}
+.car_fuel input + .ic_combust, .car_specific input + .ic_car{display:block;border:1px solid #d2d4d6;width:50px;height:50px;
+-moz-border-radius:2px;
+-webkit-border-radius:2px;
+border-radius:2px;}
+.car_fuel input:focus + .ic_combust, .car_specific input:focus + .ic_car{border:1px dotted}
+
+.car_fuel input + .ic_combust{background:url(../img/ic_car_fuel.png) no-repeat 0 0}
+.car_fuel .ic_diesel input + .ic_combust{background-position:0 0}
+.car_fuel .ic_gasolina input + .ic_combust{background-position:-50px 0}
+.car_fuel .ic_gpl input + .ic_combust{background-position:-200px 0}
+.car_fuel .ic_hibrido input + .ic_combust{background-position:-100px 0}
+.car_fuel .ic_electrico input + .ic_combust{background-position:-150px 0}
+
+.car_fuel .ic_diesel .ic_combust:hover{background-position:0 -50px}
+.car_fuel .ic_diesel input:checked + .ic_combust{background-position:0 -50px}
+.ie7 .car_fuel .ic_diesel input.checked + .ic_combust, .ie8 .car_fuel .ic_diesel input.checked + .ic_combust{background-position:0 -50px}
+.car_fuel .ic_gasolina .ic_combust:hover{background-position:-50px -50px}
+.car_fuel .ic_gasolina input:checked + .ic_combust{background-position:-50px -50px}
+.ie7 .car_fuel .ic_gasolina input.checked + .ic_combust, .ie8 .car_fuel .ic_gasolina input.checked + .ic_combust{background-position:-50px -50px}
+.car_fuel .ic_gpl .ic_combust:hover{background-position:-200px -50px}
+.car_fuel .ic_gpl input:checked + .ic_combust{background-position:-200px -50px}
+.ie7 .car_fuel .ic_gpl input.checked + .ic_combust, .ie8 .car_fuel .ic_gpl input.checked + .ic_combust{background-position:-200px -50px}
+.car_fuel .ic_hibrido .ic_combust:hover{background-position:-100px -50px}
+.car_fuel .ic_hibrido input:checked + .ic_combust{background-position:-100px -50px}
+.ie7 .car_fuel .ic_hibrido input.checked + .ic_combust, .ie8 .car_fuel .ic_hibrido input.checked + .ic_combust{background-position:-100px -50px}
+.car_fuel .ic_electrico .ic_combust:hover{background-position:-150px -50px}
+.car_fuel .ic_electrico input:checked + .ic_combust{background-position:-150px -50px}
+.ie7 .car_fuel .ic_electrico input.checked + .ic_combust, .ie8 .car_fuel .ic_electrico input.checked + .ic_combust{background-position:-150px -50px}
+
+.car_specific{float:right}
+.car_specific input + .ic_car{background:url(../img/ic_cars.png) no-repeat 0 0}
+.car_specific .ic_citadino input + .ic_car{background-position:0 0}
+.car_specific .ic_utilitario input + .ic_car{background-position:-50px 0}
+.car_specific .ic_sedan input + .ic_car{background-position:-100px 0}
+.car_specific .ic_carrinha input + .ic_car{background-position:-150px 0}
+.car_specific .ic_coupe input + .ic_car{background-position:-200px 0}
+.car_specific .ic_cabrio input + .ic_car{background-position:-250px 0}
+.car_specific .ic_monovolume input + .ic_car{background-position:-300px 0}
+.car_specific .ic_suv input + .ic_car{background-position:-350px 0}
+.car_specific .ic_tt input + .ic_car{background-position:-400px 0}
+.car_specific .ic_pickup input + .ic_car{background-position:-450px 0}
+.car_specific .ic_classico input + .ic_car{background-position:-500px 0}
+
+.car_specific .ic_citadino .ic_car:hover{background-position:0 -50px}
+.car_specific .ic_citadino input:checked + .ic_car{background-position:0 -50px}
+.ie7 .car_specific .ic_citadino input.checked + .ic_car, .ie8 .car_specific .ic_citadino input.checked + .ic_car{background-position:0 -50px}
+.car_specific .ic_utilitario .ic_car:hover{background-position:-50px -50px}
+.car_specific .ic_utilitario input:checked + .ic_car{background-position:-50px -50px}
+.ie7 .car_specific .ic_utilitario input.checked + .ic_car, .ie8 .car_specific .ic_utilitario input.checked + .ic_car{background-position:-50px -50px}
+.car_specific .ic_sedan .ic_car:hover{background-position:-100px -50px}
+.car_specific .ic_sedan input:checked + .ic_car{background-position:-100px -50px}
+.ie7 .car_specific .ic_sedan input.checked + .ic_car, .ie8 .car_specific .ic_sedan input.checked + .ic_car{background-position:-100px -50px}
+.car_specific .ic_carrinha .ic_car:hover{background-position:-150px -50px}
+.car_specific .ic_carrinha input:checked + .ic_car{background-position:-150px -50px}
+.ie7 .car_specific .ic_carrinha input.checked + .ic_car, .ie8 .car_specific .ic_carrinha input.checked + .ic_car{background-position:-150px -50px}
+.car_specific .ic_coupe .ic_car:hover{background-position:-200px -50px}
+.car_specific .ic_coupe input:checked + .ic_car{background-position:-200px -50px}
+.ie7 .car_specific .ic_coupe input.checked + .ic_car, .ie8 .car_specific .ic_coupe input.checked + .ic_car{background-position:-200px -50px}
+.car_specific .ic_cabrio .ic_car:hover{background-position:-250px -50px}
+.car_specific .ic_cabrio input:checked + .ic_car{background-position:-250px -50px}
+.ie7 .car_specific .ic_cabrio input.checked + .ic_car, .ie8 .car_specific .ic_cabrio input.checked + .ic_car{background-position:-250px -50px}
+.car_specific .ic_monovolume .ic_car:hover{background-position:-300px -50px}
+.car_specific .ic_monovolume input:checked + .ic_car{background-position:-300px -50px}
+.ie7 .car_specific .ic_monovolume input.checked + .ic_car, .ie8 .car_specific .ic_monovolume input.checked + .ic_car{background-position:-300px -50px}
+.car_specific .ic_suv .ic_car:hover{background-position:-350px -50px}
+.car_specific .ic_suv input:checked + .ic_car{background-position:-350px -50px}
+.ie7 .car_specific .ic_suv input.checked + .ic_car, .ie8 .car_specific .ic_suv input.checked + .ic_car{background-position:-350px -50px}
+.car_specific .ic_tt .ic_car:hover{background-position:-400px -50px}
+.car_specific .ic_tt input:checked + .ic_car{background-position:-400px -50px}
+.ie7 .car_specific .ic_tt input.checked + .ic_car, .ie8 .car_specific .ic_tt input.checked + .ic_car{background-position:-400px -50px}
+.car_specific .ic_pickup .ic_car:hover{background-position:-450px -50px}
+.car_specific .ic_pickup input:checked + .ic_car{background-position:-450px -50px}
+.ie7 .car_specific .ic_pickup input.checked + .ic_car, .ie8 .car_specific .ic_pickup input.checked + .ic_car{background-position:-450px -50px}
+.car_specific .ic_classico .ic_car:hover{background-position:-500px -50px}
+.car_specific .ic_classico input:checked + .ic_car{background-position:-500px -50px}
+.ie7 .car_specific .ic_classico input.checked + .ic_car, .ie8 .car_specific .ic_classico input.checked + .ic_car{background-position:-500px -50px}
+
+.car_store_dealer{float:left}
+.car_brand label > span, .car_store_dealer label > span{display:block;border-top:1px solid #abadb3;border-right:1px solid #e2e3ea;border-left:1px solid #e2e3ea;border-bottom:1px solid #e3e9ef;padding:3px 5px;
+-moz-border-radius:2px;
+-webkit-border-radius:2px;
+border-radius:2px;
+-moz-box-sizing:border-box;
+-webkit-box-sizing:border-box;
+box-sizing:border-box;}
+.js .car_brand .select_option, .js .car_store_dealer .select_option{color:#70767d;font-size:1.0em;display:block;padding-right:14px;background:url(../img/arrows.png) no-repeat right -7px}
+.js .car_brand .select_option, .js .car_store_dealer .select_option{text-overflow:ellipsis;overflow:hidden;width:140px;white-space:nowrap}
+.no-js .car_brand .select_option, .no-js .car_store_dealer .select_option{display:none}
+.car_brand .rewrite_select, .car_store_dealer .rewrite_select{color:#70767d;font-size:1.0em;width:100%}
+.js .car_brand .rewrite_select, .js .car_store_dealer .rewrite_select{position:absolute;left:0;top:2px;margin:0;opacity:0}
+.js.ie7 .car_brand .rewrite_select, .js.ie7 .car_store_dealer .rewrite_select, .js.ie8 .car_brand .rewrite_select, .js.ie8 .car_store_dealer .rewrite_select{filter:alpha(opacity=0)}
+.car_fuel{clear:left;float:left}
+.car_brand{padding-bottom:18px!important}
+.car_brand, .car_store_dealer{width:166px}
+.car_fuel{width:172px}
+.car_value{float:right;margin-top:-26px!important;border:1px solid #d2d4d6!important;padding:20px 30px!important;width:315px}
+.car_value > legend:first-child + fieldset{padding-top:0}
+.car_value fieldset{padding-top:15px}
+.car_value > legend{font-size:1.1em!important;position:relative}
+.car_value > legend > strong{position:absolute;left:0;top:-20px;margin-left:-20px}
+.ie7 .car_value > legend > strong, .ie8 .car_value > legend > strong{top:-40px}
+.car_value legend > strong{color:#70767d;font-size:1.1em!important;margin-top:0!important}
+.car_value label{padding-bottom:10px}
+.car_value label input{color:#70767d;text-align:center;width:60px}
+.car_value .slidebar{clear:both;margin-top:5px}
+
+.map_location{float:left;margin-left:10px!important;margin-top:-26px!important;border:1px solid #d2d4d6!important;width:218px/*;outline:1px solid #d2d4d6*/}
+.map_location > legend{position:relative}
+.map_location > legend > strong{position:absolute;top:-20px}
+.map_continente{float:right;border-left:1px solid #d2d4d6!important}
+.map_continente legend, .map_acores legend, .map_madeira legend{text-align:center;position:relative;/*margin-bottom:39px;*/padding:0;width:100%}
+.ie7 .map_continente legend, .map_acores legend, .map_madeira legend{width:100px}
+.map_continente legend > strong, .map_acores legend > strong, .map_madeira legend > strong{color:#70767d;font-size:1.1em!important;position:absolute;left:25%}
+.map_continente legend > strong{top:20px;margin-top:-8px}
+
+.map_continente .img, .map_acores .img, .map_madeira .img{position:relative;left:0;top:0;margin-top:30px}
+.map_continente label, .map_acores label, .map_madeira label{text-align:center;position:absolute;z-index:1}
+.map_continente label .map_region + span, .map_acores label .map_region + span, .map_madeira label .map_region + span{position:absolute;left:-99999px}
+.map_continente input, .map_acores input, .map_madeira input{position:absolute;left:-99999px}
+.map_continente .map_region:hover{background:url(../img/map_continente.png) no-repeat -115px 0}
+.map_continente input:checked + .map_region{background:url(../img/map_continente.png) no-repeat -115px 0}
+.ie7 .map_continente input.checked + .map_region, .ie8 .map_continente input.checked + .map_region{background:url(../img/map_continente.png) no-repeat -115px 0}
+.map_continente .map_region, .map_acores .map_region, .map_madeira .map_region{cursor:pointer;display:block}
+
+.map_continente .img{width:115px;height:200px;background:url(../img/map_continente.png) no-repeat 0 0}
+.map_continente .map_viana{left:23px;top:6px}
+.map_continente .map_viana .map_region{width:27px;height:21px}
+.map_continente .map_viana .map_region:hover{background-position:-115px 0}
+.map_continente .map_viana input:checked + .map_region{background-position:-115px 0!important}
+.map_continente .map_viana input:disabled + .map_region{cursor:default;background-position:left bottom}
+.ie7 .map_continente .map_viana input.checked + .map_region, .ie8 .map_continente .map_viana input.checked + .map_region{background-position:-115px 0!important}
+.ie7 .map_continente .map_viana input.disabled + .map_region, .ie8 .map_continente .map_viana input.disabled + .map_region{cursor:default;background-position:left bottom}
+.map_continente .map_braga{left:26px;top:19px;}
+.map_continente .map_braga .map_region{width:33px;height:19px}
+.map_continente .map_braga .map_region:hover{background-position:-115px -21px}
+.map_continente .map_braga input:checked + .map_region{background-position:-115px -21px!important}
+.map_continente .map_braga input:disabled + .map_region{cursor:default;background-position:left bottom}
+.ie7 .map_continente .map_braga input.checked + .map_region, .ie8 .map_continente .map_braga input.checked + .map_region{background-position:-115px -21px!important}
+.ie7 .map_continente .map_braga input.disabled + .map_region, .ie8 .map_continente .map_braga input.disabled + .map_region{cursor:default;background-position:left bottom}
+.map_continente .map_braganca{left:70px;top:12px}
+.map_continente .map_braganca .map_region{width:39px;height:36px}
+.map_continente .map_braganca .map_region:hover{background-position:-115px -40px}
+.map_continente .map_braganca input:checked + .map_region{background-position:-115px -40px!important}
+.map_continente .map_braganca input:disabled + .map_region{cursor:default;background-position:left bottom}
+.ie7 .map_continente .map_braganca input.checked + .map_region, .ie8 .map_continente .map_braganca input.checked + .map_region{background-position:-115px -40px!important}
+.ie7 .map_continente .map_braganca input.disabled + .map_region, .ie8 .map_continente .map_braganca input.disabled + .map_region{cursor:default;background-position:left bottom}
+.map_continente .map_porto{left:27px;top:31px}
+.map_continente .map_porto .map_region{width:30px;height:18px}
+.map_continente .map_porto .map_region:hover{background-position:-115px -76px}
+.map_continente .map_porto input:checked + .map_region{background-position:-115px -76px!important}
+.map_continente .map_porto input:disabled + .map_region{cursor:default;background-position:left bottom}
+.ie7 .map_continente .map_porto input.checked + .map_region, .ie8 .map_continente .map_porto input.checked + .map_region{background-position:-115px -76px!important}
+.ie7 .map_continente .map_porto input.disabled + .map_region, .ie8 .map_continente .map_porto input.disabled + .map_region{cursor:default;background-position:left bottom}
+.map_continente .map_aveiro{left:27px;top:46px}
+.map_continente .map_aveiro .map_region{width:23px;height:28px}
+.map_continente .map_aveiro .map_region:hover{background-position:-115px -94px}
+.map_continente .map_aveiro input:checked + .map_region{background-position:-115px -94px!important}
+.map_continente .map_aveiro input:disabled + .map_region{cursor:default;background-position:left bottom}
+.ie7 .map_continente .map_aveiro input.checked + .map_region, .ie8 .map_continente .map_aveiro input.checked + .map_region{background-position:-115px -94px!important}
+.ie7 .map_continente .map_aveiro input.disabled + .map_region, .ie8 .map_continente .map_aveiro input.disabled + .map_region{cursor:default;background-position:left bottom}
+.map_continente .map_viseu{left:40px;top:41px}
+.map_continente .map_viseu .map_region{width:34px;height:32px}
+.map_continente .map_viseu .map_region:hover{background-position:-115px -122px}
+.map_continente .map_viseu input:checked + .map_region{background-position:-115px -122px!important}
+.map_continente .map_viseu input:disabled + .map_region{cursor:default;background-position:left bottom}
+.ie7 .map_continente .map_viseu input.checked + .map_region, .ie8 .map_continente .map_viseu input.checked + .map_region{background-position:-115px -122px!important}
+.ie7 .map_continente .map_viseu input.disabled + .map_region, .ie8 .map_continente .map_viseu input.disabled + .map_region{cursor:default;background-position:left bottom}
+.map_continente .map_guarda{left:56px;top:43px}
+.map_continente .map_guarda .map_region{width:35px;height:34px}
+.map_continente .map_guarda .map_region:hover{background-position:-115px -154px}
+.map_continente .map_guarda input:checked + .map_region{background-position:-115px -154px!important}
+.map_continente .map_guarda input:disabled + .map_region{cursor:default;background-position:left bottom}
+.ie7 .map_continente .map_guarda input.checked + .map_region, .ie8 .map_continente .map_guarda input.checked + .map_region{background-position:-115px -154px!important}
+.ie7 .map_continente .map_guarda input.disabled + .map_region, .ie8 .map_continente .map_guarda input.disabled + .map_region{cursor:default;background-position:left bottom}
+.map_continente .map_coimbra{left:23px;top:66px}
+.map_continente .map_coimbra .map_region{width:38px;height:22px}
+.map_continente .map_coimbra .map_region:hover{background-position:-115px -188px}
+.map_continente .map_coimbra input:checked + .map_region{background-position:-115px -188px!important}
+.map_continente .map_coimbra input:disabled + .map_region{cursor:default;background-position:left bottom}
+.ie7 .map_continente .map_coimbra input.checked + .map_region, .ie8 .map_continente .map_coimbra input.checked + .map_region{background-position:-115px -188px!important}
+.ie7 .map_continente .map_coimbra input.disabled + .map_region, .ie8 .map_continente .map_coimbra input.disabled + .map_region{cursor:default;background-position:left bottom}
+.map_continente .map_leiria{left:9px;top:81px}
+.map_continente .map_leiria .map_region{width:40px;height:29px}
+.map_continente .map_leiria .map_region:hover{background-position:-115px -210px}
+.map_continente .map_leiria input:checked + .map_region{background-position:-115px -210px!important}
+.map_continente .map_leiria input:disabled + .map_region{cursor:default;background-position:left bottom}
+.ie7 .map_continente .map_leiria input.checked + .map_region, .ie8 .map_continente .map_leiria input.checked + .map_region{background-position:-115px -210px!important}
+.ie7 .map_continente .map_leiria input.disabled + .map_region, .ie8 .map_continente .map_leiria input.disabled + .map_region{cursor:default;background-position:left bottom}
+.map_continente .map_santarem{left:20px;top:90px}
+.map_continente .map_santarem .map_region{width:38px;height:40px}
+.map_continente .map_santarem .map_region:hover{background-position:-115px -239px}
+.map_continente .map_santarem input:checked + .map_region{background-position:-115px -239px!important}
+.map_continente .map_santarem input:disabled + .map_region{cursor:default;background-position:left bottom}
+.ie7 .map_continente .map_santarem input.checked + .map_region, .ie8 .map_continente .map_santarem input.checked + .map_region{background-position:-115px -239px!important}
+.ie7 .map_continente .map_santarem input.disabled + .map_region, .ie8 .map_continente .map_santarem input.disabled + .map_region{cursor:default;background-position:left bottom}
+.map_continente .map_lisboa{left:4px;top:109px}
+.map_continente .map_lisboa .map_region{width:24px;height:24px}
+.map_continente .map_lisboa .map_region:hover{background-position:-115px -279px}
+.map_continente .map_lisboa input:checked + .map_region{background-position:-115px -279px!important}
+.map_continente .map_lisboa input:disabled + .map_region{cursor:default;background-position:left bottom}
+.ie7 .map_continente .map_lisboa input.checked + .map_region, .ie8 .map_continente .map_lisboa input.checked + .map_region{background-position:-115px -279px!important}
+.ie7 .map_continente .map_lisboa input.disabled + .map_region, .ie8 .map_continente .map_lisboa input.disabled + .map_region{cursor:default;background-position:left bottom}
+.map_continente .map_setubal{left:11px;top:127px}
+.map_continente .map_setubal .map_region{width:38px;height:40px}
+.map_continente .map_setubal .map_region:hover{background-position:-115px -303px}
+.map_continente .map_setubal input:checked + .map_region{background-position:-115px -303px!important}
+.map_continente .map_setubal input:disabled + .map_region{cursor:default;background-position:left bottom}
+.ie7 .map_continente .map_setubal input.checked + .map_region, .ie8 .map_continente .map_setubal input.checked + .map_region{background-position:-115px -303px!important}
+.ie7 .map_continente .map_setubal input.disabled + .map_region, .ie8 .map_continente .map_setubal input.disabled + .map_region{cursor:default;background-position:left bottom}
+.map_continente .map_evora{left:30px;top:119px}
+.map_continente .map_evora .map_region{width:50px;height:32px}
+.map_continente .map_evora .map_region:hover{background-position:-115px -343px}
+.map_continente .map_evora input:checked + .map_region{background-position:-115px -343px!important}
+.map_continente .map_evora input:disabled + .map_region{cursor:default;background-position:left bottom}
+.ie7 .map_continente .map_evora input.checked + .map_region, .ie8 .map_continente .map_evora input.checked + .map_region{background-position:-115px -343px!important}
+.ie7 .map_continente .map_evora input.disabled + .map_region, .ie8 .map_continente .map_evora input.disabled + .map_region{cursor:default;background-position:left bottom}
+.map_continente .map_faro{left:20px;top:173px}
+.map_continente .map_faro .map_region{width:51px;height:19px}
+.map_continente .map_faro .map_region:hover{background-position:-115px -375px}
+.map_continente .map_faro input:checked + .map_region{background-position:-115px -375px!important}
+.map_continente .map_faro input:disabled + .map_region{cursor:default;background-position:left bottom}
+.ie7 .map_continente .map_faro input.checked + .map_region, .ie8 .map_continente .map_faro input.checked + .map_region{background-position:-115px -375px!important}
+.ie7 .map_continente .map_faro input.disabled + .map_region, .ie8 .map_continente .map_faro input.disabled + .map_region{cursor:default;background-position:left bottom}
+
+.map_continente .map_vilareal{left:48px;top:15px}
+.map_continente .map_vilareal .map_region{width:29px;height:29px}
+.map_continente .map_vilareal .map_region:hover{background-position:-115px -394px}
+.map_continente .map_vilareal input:checked + .map_region{background-position:-115px -394px!important}
+.map_continente .map_vilareal input:disabled + .map_region{cursor:default;background-position:left bottom}
+.ie7 .map_continente .map_vilareal input.checked + .map_region, .ie8 .map_continente .map_vilareal input.checked + .map_region{background-position:-115px -394px!important}
+.ie7 .map_continente .map_vilareal input.disabled + .map_region, .ie8 .map_continente .map_vilareal input.disabled + .map_region{cursor:default;background-position:left bottom}
+.map_continente .map_castelobranco{left:43px;top:68px}
+.map_continente .map_castelobranco .map_region{width:45px;height:33px}
+.map_continente .map_castelobranco .map_region:hover{background-position:-115px -423px}
+.map_continente .map_castelobranco input:checked + .map_region{background-position:-115px -423px!important}
+.map_continente .map_castelobranco input:disabled + .map_region{cursor:default;background-position:left bottom}
+.ie7 .map_continente .map_castelobranco input.checked + .map_region, .ie8 .map_continente .map_castelobranco input.checked + .map_region{background-position:-115px -423px!important}
+.ie7 .map_continente .map_castelobranco input.disabled + .map_region, .ie8 .map_continente .map_castelobranco input.disabled + .map_region{cursor:default;background-position:left bottom}
+.map_continente .map_portalegre{left:41px;top:97px}
+.map_continente .map_portalegre .map_region{width:44px;height:34px}
+.map_continente .map_portalegre .map_region:hover{background-position:-115px -456px}
+.map_continente .map_portalegre input:checked + .map_region{background-position:-115px -456px!important}
+.map_continente .map_portalegre input:disabled + .map_region{cursor:default;background-position:left bottom}
+.ie7 .map_continente .map_portalegre input.checked + .map_region, .ie8 .map_continente .map_portalegre input.checked + .map_region{background-position:-115px -456px!important}
+.ie7 .map_continente .map_portalegre input.disabled + .map_region, .ie8 .map_continente .map_portalegre input.disabled + .map_region{cursor:default;background-position:left bottom}
+.map_continente .map_beja{left:26px;top:144px}
+.map_continente .map_beja .map_region{width:60px;height:38px}
+.map_continente .map_beja .map_region:hover{background-position:-115px -490px}
+.map_continente .map_beja input:checked + .map_region{background-position:-115px -490px!important}
+.map_continente .map_beja input:disabled + .map_region{cursor:default;background-position:left bottom}
+.ie7 .map_continente .map_beja input.checked + .map_region, .ie8 .map_continente .map_beja input.checked + .map_region{background-position:-115px -490px!important}
+.ie7 .map_continente .map_beja input.disabled + .map_region, .ie8 .map_continente .map_beja input.disabled + .map_region{cursor:default;background-position:left bottom}
+
+.map_acores{border-bottom:1px solid #d2d4d6!important}
+.map_acores, .map_madeira{clear:left;float:left}
+.map_acores legend > strong, .map_madeira legend > strong{top:12px}
+.map_acores .img, .map_madeira .img{width:80px;height:80px;background:url(../img/map_ilhas.png) no-repeat left top}
+.map_acores .map_region:hover, .map_madeira .map_region:hover{background:url(../img/map_ilhas.png) no-repeat right top}
+.map_acores input:checked + .map_region, .map_madeira input:checked + .map_region{background:url(../img/map_ilhas.png) no-repeat right top}
+.ie7 .map_acores input.checked + .map_region, .ie8 .map_acores input.checked + .map_region, .ie7 .map_madeira input.checked + .map_region, .ie8 .map_madeira input.checked + .map_region{background:url(../img/map_ilhas.png) no-repeat right top}
+.map_acores .map_arquipelago_acores, .map_madeira .map_arquipelago_madeira{left:0;top:0}
+.map_acores .map_arquipelago_acores .map_region, .map_madeira .map_arquipelago_madeira .map_region{width:80px;height:80px}
+.map_acores .map_arquipelago_acores .map_region:hover{background-position:right top}
+.map_acores .map_arquipelago_acores input:checked + .map_region{background-position:right top!important}
+.map_acores .map_arquipelago_acores input:disabled + .map_region{cursor:default;background-position:left top}
+.ie7 .map_acores .map_arquipelago_acores input.checked + .map_region, .ie8 .map_acores .map_arquipelago_acores input.checked + .map_region{background-position:right top}
+.ie7 .map_acores .map_arquipelago_acores input.disabled + .map_region, .ie8 .map_acores .map_arquipelago_acores input.disabled + .map_region{cursor:default;background-position:left top}
+
+.map_madeira .img{background-position:left bottom}
+.map_madeira .map_arquipelago_madeira .map_region:hover{background-position:right bottom}
+.map_madeira .map_arquipelago_madeira input:checked + .map_region{background-position:right bottom!important}
+.map_madeira .map_arquipelago_madeira input:disabled + .map_region{cursor:default;background-position:left bottom}
+.ie7 .map_madeira .map_arquipelago_madeira input.checked + .map_region, .ie8 .map_madeira .map_arquipelago_madeira input.checked + .map_region{background-position:right bottom}
+.ie7 .map_madeira .map_arquipelago_madeira input.disabled + .map_region, .ie8 .map_madeira .map_arquipelago_madeira input.disabled + .map_region{cursor:default;background-position:left bottom}
+
+/*LISTA DE CAMPANHAS*/
+.campaign{overflow:hidden}
+.campaign ul{margin:0;list-style:none}
+.campaign ul > li:first-child{margin-top:0;border-top:none;padding-top:0}
+.campaign ul > li{clear:both;float:left;position:relative;margin-top:30px;border-top:1px solid #d2d4d6;padding-top:30px;width:100%}
+.campaign ul > li > img + .obj + .share{position:absolute;left:235px;bottom:0}
+.campaign ul > li > img + .obj + .share .ic_share{margin-right:10px}
+.campaign ul > li a{text-decoration:none}
+.campaign img{float:left;padding-right:20px;width:215px;height:161px}
+.campaign .obj{font-size:1.2em;overflow:hidden}
+.campaign .obj h2{font-size:1.2em;margin-top:0}
+.campaign .fb-like{}
+
+/*LISTA DE DESTAQUES E LISTA DE ULTIMAS ENTRADAS*/
+.highlights, .last_entries{overflow:hidden}
+.highlights ul.cols, .last_entries ul.cols{overflow:hidden;margin:0;margin-left:-19px;padding:0;list-style:none}
+.highlights ul.cols > li:first-child{width:405px}
+.highlights ul.cols > li:first-child img{width:403px;height:302px}
+.highlights ul.cols > li:first-child .obj .tit{font-size:1.4em;margin-bottom:15px;height:43px}
+.highlights ul.cols > li:first-child .obj .dealer{font-size:1.0em;clear:both;margin-top:15px}
+.highlights ul.cols > li:first-child .price{padding:10px 13px 9px 30px;background-position:13px -97px}
+.highlights ul.cols > li:first-child .price > strong{font-size:2.0em}
+.highlights ul.cols > li, .last_entries ul.cols > li{float:left;padding-left:19px;padding-bottom:19px;width:193px}
+.highlights ul.cols img, .last_entries ul.cols img{display:block;margin-bottom:3px;border:1px solid #97a0a9;width:191px;height:143px;
+-webkit-border-top-left-radius:2px;
+-webkit-border-top-right-radius:2px;
+-moz-border-radius-topleft:2px;
+-moz-border-radius-topright:2px;
+border-top-left-radius:2px;
+border-top-right-radius:2px;}
+.highlights ul.cols .obj, .last_entries ul.cols .obj{color:#fff;font-size:1.2em;text-decoration:none;clear:left;padding:15px 13px;background-color:#97a0a9}
+.highlights ul.cols .info{overflow:hidden;margin:0;padding:0;list-style:none}
+.highlights ul.cols .info li{font-size:0.9em;font-weight:bold;line-height:2;display:block;float:left;padding-right:15px}
+.highlights ul.cols .info li > strong{margin-right:7px}
+.highlights ul.cols a, .last_entries ul.cols a{text-decoration:none}
+.highlights ul.cols a:hover .obj, .last_entries ul.cols a:hover .obj, .highlights ul.cols a:hover .obj  .date, .last_entries ul.cols a:hover .obj .date{text-decoration:none;background-color:#ff7707}
+.highlights ul.cols a:hover .obj, .last_entries ul.cols a:hover .obj, .highlights ul.cols a:hover .obj  .date, .last_entries ul.cols a:hover .obj .date{-moz-transition:background-color .15s linear;-webkit-transition:background-color .15s linear;transition:background-color .15s linear;}
+.highlights ul.cols .obj .tit, .last_entries ul.cols .obj .tit{position:relative;overflow:hidden;height:29px}
+.highlights ul.cols .obj .date, .last_entries ul.cols .obj .date{position:absolute;bottom:0;right:0;padding-left:17px;background-color:#97a0a9}
+.highlights ul.cols .price, .last_entries ul.cols .price{padding:5px 13px 5px 30px;background:#5d6268 url(../img/arrows.png) no-repeat 13px -105px;
+-webkit-border-bottom-left-radius:2px;
+-webkit-border-bottom-right-radius:2px;
+-moz-border-radius-bottomleft:2px;
+-moz-border-radius-bottomright:2px;
+border-bottom-left-radius:2px;
+border-bottom-right-radius:2px;}
+.highlights ul.cols .price strong, .last_entries ul.cols .price strong{color:#fff;font-size:1.5em;display:block}
+
+/*ADDs*/
+.adds{padding:20px 20px 0}
+.adds .tit{color:#05447f;font-size:1.4em;text-transform:uppercase;margin-top:0;margin-bottom:20px;border-bottom:1px solid #d2d4d6;padding-bottom:7px}
+.adds a{text-decoration:none;display:block;padding-bottom:20px}
+.adds img{float:left;padding-right:5px;width:80px}
+.adds .obj{font-size:1.1em;display:block;overflow:hidden;padding:4px 0}
+.adds .obj strong{font-weight:normal}
+.adds .obj em{font-style:normal}
+
+/*VERTICAL BANNER*/
+.v_banner{text-align:center;display:block}
+
+/*BANNER*/
+.banner{overflow:hidden;margin-bottom:0!important;min-height:323px}
+.banner .flex-control-paging{text-align:right!important;right:30px;bottom:30px!important}
+.banner .flex-control-paging li a{text-align:left!important;background:#fff;
+-webkit-border-radius:0;
+-moz-border-radius:0;
+border-radius:0;}
+.banner .flex-control-paging li a:hover, .banner .flex-control-paging li a.flex-active{background:#ff7707!important}
+.banner .flex-direction-nav a{width:37px;height:64px;background:url(../img/arrows_big.png) no-repeat 0 -42px}
+.banner:hover .flex-direction-nav .flex-prev{left:30px!important}
+.banner .flex-direction-nav .flex-next{background-position:100% -42px}
+.banner:hover .flex-direction-nav .flex-next{right:30px!important}
+.banner .text{color:#fff;font-size:2.0em;font-family:'FordAntennaNormal', sans-serif;line-height:0.1;position:absolute;right:120px;bottom:20px;padding:0 10px;
+background:-moz-linear-gradient(left, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.5) 100%);
+background:-webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0.5)), color-stop(100%,rgba(0,0,0,0.5)));
+background:-webkit-linear-gradient(left, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.5) 100%);
+background:-o-linear-gradient(left, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.5) 100%);
+background:-ms-linear-gradient(left, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.5) 100%);
+background:linear-gradient(to right, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.5) 100%);}
+.ie7 .banner .text, .ie8 .banner .text, .ie9 .banner .text{filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#80000000',GradientType=1);}
+.banner .text strong{font-size:1.5em}
+/*
+<div class="text">
+	<p><strong>Ford Direct</strong> - Usados garantidos pela Ford</p>
+	<p>Um produto exclusivo da rede de Concessionários Ford.</p>
+</div>
+*/
+
+/*GALLERY*/
+.gallery{width:482px}
+.gallery .flexslider{overflow:hidden;margin:0}
+.gallery .big_img{margin-bottom:10px;
+-moz-border-radius:2px;
+-webkit-border-radius:2px;
+border-radius:2px;}
+.gallery .big_img .slides{padding-left:0}
+.no-js .gallery .big_img ul > li:first-child{display:block}
+.no-js .gallery .big_img ul > li{display:none}
+.gallery .big_img img{border:1px solid #d2d4d6;width:482px;height:362px}
+.gallery .big_img .flex-direction-nav a{width:37px;height:33px}
+.gallery .thumb{padding:0 50px 0 55px}
+.no-js .gallery .thumb{display:none}
+.gallery .thumb .slides{overflow:hidden;clear:both;margin:0;padding-left:0;width:380px;list-style:none}
+.gallery .thumb ul > li{float:left;margin-right:9px;width:86px!important}
+.gallery .thumb ul > li > img{border:1px solid #d2d4d6;width:86px;height:64px}
+.gallery .thumb ul > .flex-active-slide{border:4px solid #ff7707;width:78px!important}
+.gallery .thumb ul > .flex-active-slide > img{border:none;width:78px;height:56px}
+.gallery .thumb .flex-direction-nav{padding-top:5px}
+
+/*CAR DEALER*/
+.car_dealer{float:right;border-left:1px solid #d2d4d6;padding-left:20px;width:150px}
+.car_dealer h1{color:#fff;font-size:1.4em;text-align:center;text-transform:uppercase;margin-top:0;padding:10px 10px;background-color:#ff7707}
+.car_dealer h2{font-size:2.4em;line-height:0.8}
+.car_dealer h2 > span{font-size:0.7em;font-weight:normal}
+.car_dealer .address{font-size:1.1em;padding:10px 0 30px}
+.car_dealer .address > p{clear:both}
+.car_dealer .address .ic_marker{margin-bottom:25px/*margin-bottom:20px*/}
+.car_dealer .address .ic_marker, .car_dealer .address .ic_telephone, .car_dealer .address .ic_fax, .car_dealer .address .ic_email{float:left;margin-right:7px}
+
+/*PAGE CAR DEALER*/
+.concessionario{overflow:hidden}
+.concessionario .vehicle{float:left;width:635px}
+.concessionario .vehicle .share{left:495px}
+.concessionario .options{margin-top:0;border-left:1px solid #d2d4d6;border-top:none;padding-left:20px;padding-top:0}
+.concessionario .options h3{font-size:1.2em;font-weight:normal;margin-top:0}
+.concessionario .options h3 > span{font-size:1.5em;font-weight:bold;display:block}
+.concessionario .options ul > li{float:none;width:auto}
+
+/*VEHICLE*/
+.vehicle{overflow:hidden;position:relative}
+.vehicle .share{position:absolute;left:520px;bottom:0}/*right:78px;*/
+.vehicle .share .fb-like, .vehicle .share .ic_share, .vehicle .share .ic_print{margin-right:10px}
+
+/*DESCRIPTION*/
+.description{float:right;padding:0 20px 20px 10px;width:120px}
+.description h2{font-size:3.0em;margin-top:0}
+.description ul{margin:0;padding-left:0;list-style:none}
+.description ul > li{font-size:1.1em;padding-bottom:10px}
+.description .icons{font-weight:bold;line-height:2.0}
+.description .icons > strong{margin-right:7px}
+.description .icons + .icons + .icons + .icons{padding-bottom:25px}
+
+/*OPTIONS*/
+.options{overflow:hidden;margin-top:30px;border-top:1px solid #d2d4d6;padding-top:14px}
+.options h3{font-size:1.4em;text-transform:uppercase}
+.options ul{padding-left:0;list-style:none}
+.options ul > li{font-size:1.2em;float:left;padding-left:20px;padding-bottom:10px;width:20%;background:url(../img/ic_bullet.png) no-repeat 0 -2px;
+-moz-box-sizing:border-box;
+-webkit-box-sizing:border-box;
+box-sizing:border-box;}
+.ie7 .options ul > li{width:18%}
+
+/*MODAL WINDOW*/
+.modal_win{display:none;background:#fff;padding:10px}
+.modal_win .testdrive{width:840px}
+.modal_win .contactos, .modal_win .alertas{width:320px}
+.modal_win .mw_header{color:#fff;font-size:1.4em;text-transform:uppercase;padding:5px 10px 5px;background-color:#ff7707}
+.modal_win .title{line-height:1.7;font-family:'TitilliumText25L800wt', sans-serif;}
+.modal_win fieldset{margin:0;border:none;padding:0}
+.modal_win label{display:inline-block;margin-bottom:15px}
+.modal_win label > strong{color:#70767d;font-size:1.2em;text-transform:uppercase;vertical-align:top;display:inline-block;margin-bottom:5px}
+.modal_win .hidden{text-indent:-99999px;display:block}
+.modal_win label > span{display:block;border-top:1px solid #abadb3;border-right:1px solid #e2e3ea;border-left:1px solid #e2e3ea;border-bottom:1px solid #e3e9ef;padding:3px 5px;
+-moz-border-radius:2px;
+-webkit-border-radius:2px;
+border-radius:2px;
+-moz-box-sizing:border-box;
+-webkit-box-sizing:border-box;
+box-sizing:border-box;}
+.modal_win label input{line-height:1.5}
+.modal_win label input, .modal_win label textarea, .modal_win label select{color:#70767d;margin:0;border:none;padding:0;width:100%;background-color:transparent}
+.modal_win label textarea{resize:none}
+.js .modal_win .select_option{font-size:1.1em;display:block;padding-right:14px;background:url(../img/arrows.png) no-repeat right -7px}
+.no-js .modal_win .select_option{display:none}
+.modal_win .rewrite_select{width:100%}
+.js .modal_win .rewrite_select{position:absolute;left:0;top:2px;opacity:0}
+.js.ie7 .modal_win .rewrite_select, .js.ie8 .modal_win .rewrite_select{filter:alpha(opacity=0)}
+.modal_win .codigo_postal1 input, .modal_win .codigo_postal2 input{display:inline-block}
+.modal_win .calendar span{padding:4px 25px 3px 5px;background:url(../img/ic_car_details.png) no-repeat 114% -19px}
+.modal_win .clearleft{clear:left}
+.modal_win .width100pc{width:100%}
+.modal_win .button{cursor:pointer;color:#fff;font-size:1.4em;font-weight:bold;text-transform:uppercase;border:1px solid #05447f;padding:12px 20px;background-color:#05447f;
+-moz-border-radius:4px;
+-webkit-border-radius:4px;
+border-radius:4px;
+-moz-box-sizing:border-box;
+-webkit-box-sizing:border-box;
+box-sizing:border-box;}
+.modal_win .button:hover{color:#05447f;background:#fff}
+.op_mod_win{cursor:pointer}
+.close_mod_win{cursor:pointer;text-indent:-99999px;width:22px;height:23px;background:url(../img/ic_close.png) no-repeat left top}
+.close_mod_win:hover{background-position:right top}
+
+/*CONTACTE NOS*/
+.contacte_nos, .test_drive{padding:15px 0 30px!important}
+.ie7 .contacte_nos, .ie7 .test_drive{padding:0 0 30px!important}
+.contacte_nos > label{display:block}
+.contacte_nos > label > input, .contacte_nos label > textarea{width:100%}
+
+/*TEST DRIVE*/
+
+.veiculo_frame{width:450px;/*height:350px;*/float:right;margin-left:20px}
+.veiculo_frame img{width:159px!important;height:119px!important}
+.field_dados_test{width:350px}
+
+.test_drive_veiculo{width:47%}
+.test_drive_veiculo > label{margin-right:30px;width:40%}
+.ie7 .test_drive_veiculo > label > strong{display:block}
+
+.test_drive_info_pessoal{border-left:1px solid #d2d4d6!important;padding-left:40px!important;width:47.5%}
+.test_drive_info_pessoal > .first{margin-left:0}
+.test_drive_info_pessoal > label{margin-left:30px;width:23.5%}
+.test_drive_info_pessoal .codigo_postal{margin-bottom:15px;width:36%}
+.test_drive_info_pessoal .codigo_postal1{margin-right:5px;width:65%}
+.test_drive_info_pessoal .codigo_postal2{width:30%}
+.ie7 .test_drive_info_pessoal label > strong{display:block}
+
+.test_drive_marcacao > label{margin-right:30px;width:19%}
+.ie7 .test_drive_marcacao > label > strong{display:block}
+.test_drive_marcacao .col2{margin-right:0;width:76.6%}
+
+/* RESULTADOS PESQUISA */
+.resultados{position:relative;/*overflow:hidden;*/margin:0;padding-left:0;/*padding-left:33px;*//*padding-top:30px;*/list-style:none}
+.items{border-bottom:solid 1px #d2d4d6;position:relative;padding-bottom:30px;margin-bottom:30px}
+.item_car{position:relative;overflow:hidden}
+.ie7 .item_car{padding:0}
+.item_car .stamp{float:left}
+.item_car img{border:solid 1px #d2d4d6;margin-right:20px;float:left;display:inline-block;width:215px;height:161px}
+.item_car .descricao{overflow:hidden;min-height:137px}
+.item_car .descricao > p{font-size:1.2em;line-height:1.5}
+.item_car .preco{font-size:2.1em!important;position:absolute;bottom:-29px}
+.ie7 .item_car .preco{bottom:-5px}
+.item_car .title{font-size:1.8em;color:#05447f;margin-top:0}
+.item_car .title a{color:#05447f;text-decoration:none}
+.item_car .details{overflow:hidden;margin-bottom:30px;margin-left:0;padding-left:0}
+.ie7 .item_car .details{margin-top:-10px}
+.item_car .details li{display:block;float:left;height:20px;font-size:11px;color:#494d52;font-weight:bold;padding-left:25px;
+line-height:2.7;margin-right:20px;background:url(../img/ic_car_details.png) no-repeat}
+.item_car .kms{background-position:0 -1px}
+.item_car .year{background-position:0 -21px!important}
+.item_car .fuel{background-position:0 -41px!important}
+.item_car .register{background-position:0 -81px!important}
+.item_car .stand{background-position:0 -61px!important}
+.items .bottom{position:relative;height:47px;padding-top:20px}
+.items .bt_alerta{width:202px}
+.items .partilhar{float:left;margin:15px 10px 0 20px}
+.items .partilhar a{text-decoration:none;display:block;line-height:1.4;font-size:1.2em}
+.items .partilhar a .ic_share{padding-right:2px}
+.items .partilhar a:hover .ic_share{background-position:-16px -80px}
+.items .fb-like{margin-left:20px;position:absolute;left:300px;bottom:15px}
+.actions{clear:both;float:left;width:100%}
+.actions .title_count{font-size:1.4em;color:#ff7707;float:left/*;margin-left:35px*/}
+.actions .hidden{text-indent:-99999px;display:block;height:1px}
+.actions label > span{display:block;border-top:1px solid #abadb3;border-right:1px solid #e2e3ea;border-left:1px solid #e2e3ea;border-bottom:1px solid #e3e9ef;padding:3px 5px;width:175px;
+-moz-border-radius:2px;
+-webkit-border-radius:2px;
+border-radius:2px;
+-moz-box-sizing:border-box;
+-webkit-box-sizing:border-box;
+box-sizing:border-box;}
+.no-js .actions label > span{width:auto}
+.js .actions .select_option{font-size:1.1em;display:block;padding-right:14px;background:url(../img/arrows.png) no-repeat right -7px}
+.no-js .actions .select_option{display:none}
+.actions .rewrite_select{color:#70767d;font-size:1.1em}
+.js .actions .rewrite_select{position:absolute;left:0;top:2px;opacity:0}
+.js.ie7 .actions .rewrite_select, .js.ie8 .actions .rewrite_select{filter:alpha(opacity=0)}
+.actions .sorter{float:left;width:175px}
+.no-js .actions .sorter{float:none}
+.pagination{display:block;float:left;margin-top:4px;padding-left:40px}
+.ie7 .pagination{top:10px}
+.pagination a, .pagination span{display:inline;float:left;}
+.pagination a{height:12px;background:url(../img/ic_paginacao.png);text-indent:-99999px}
+.pagination .first{width:12px;background-position:0 0;margin-right:15px}
+.pagination .prev{width:6px;background-position:-13px 0;margin-right:20px}
+.pagination .next{width:6px;background-position:-21px 0;margin-left:20px}
+.pagination .last{width:12px;background-position:-29px 0;margin-left:15px}
+
+/* PESQUISA PARA*/
+.pesquisa_para{/*overflow:hidden;*/padding:0 20px 10px}
+.pesquisa_para h2{color:#ff7707;font-size:1.4em;text-transform:uppercase}
+.pesquisa_para h2 > span{font-weight:normal;display:block}
+.pesquisa_para .list_options{font-size:1.1em;margin:15px 0 25px 0;list-style:none;padding-left:0}
+.pesquisa_para .list_options li{color:#05447f;font-weight:bold;padding:5px 0}
+.pesquisa_para .list_options li span{color:#70767d;font-weight:normal;display:block}
+.pesquisa_para .bt_redefinir{margin:0 auto;padding:0;width:120px}
+.pesquisa_para .bt_redefinir .caixa{padding:7px 10px!important}
+
+/* ULTIMAS ENTRADAS */
+.ultimas_entradas{margin:0 20px/*margin:0 auto;width:86px*/}
+.ultimas_entradas h2{color:#05447f;font-size:1.4em;text-transform:uppercase;font-family:'TitilliumText25L600wt', sans-serif;font-weight:normal}
+.ultimas_entradas h2 > span{font-weight:normal;display:block;font-family:'TitilliumText25L400wt', sans-serif;}
+.ultimas_entradas .list{padding:0;margin-top:20px/*;width:86px*/}
+.ie7 .ultimas_entradas .list{margin-left:0}
+.ultimas_entradas .list li{list-style:none;margin-bottom:20px;position:relative}
+.ultimas_entradas .list li img{display:block;border:1px solid #d2d4d6;width:120px;/*width:86px;height:65px*/}
+.ultimas_entradas a{text-decoration:none;display:block}
+.ultimas_entradas p{font-size:1.1em;margin-top:5px}
+
+/* VIATURAS COMPARAR*/
+.viaturas_comparar{margin:0 20px;width:120px/*margin:0 auto;width:86px*/}
+.viaturas_comparar h2{color:#05447f;font-size:1.4em;text-transform:uppercase}
+.viaturas_comparar h2 > span{font-weight:normal;display:block}
+.viaturas_comparar .list{padding:0;margin-top:20px/*;width:86px*/}
+.ie7 .viaturas_comparar .list{margin-left:0}
+.viaturas_comparar .list li{list-style:none;margin-bottom:20px}
+.viaturas_comparar .list li img{display:block;border:1px solid #d2d4d6;width:120px;/*width:86px;height:65px*/}
+.viaturas_comparar .list .remove{display:block;background:url(../img/ic_x.png);width:15px;height:15px;text-indent:-99999px;position:absolute;right:-1px;bottom:1px}
+.viaturas_comparar .list a{text-decoration:none}
+.viaturas_comparar p{font-size:1.1em;margin-top:5px}
+.viaturas_comparar .bt_comparar{margin-left:0;padding:6px 0;width:120px/*;width:86px*/}
+
+/*DETALHE CONCESSIONARIO*/
+.concessionarios{background:#ff7707;color:#fff;}
+.concessionarios h1{font-size:3.4em;margin-top:10px;margin-bottom:10px;font-family:'TitilliumText25L600wt', sans-serif;font-weight:normal;line-height:1}
+.concessionarios .content_right{padding-left:20px;min-height:147px;overflow:hidden}
+.concessionarios .info{margin:0;padding:0;list-style:none}
+.concessionarios .info li{vertical-align:middle;clear:both;padding-top:4px;padding-bottom:8px}
+.concessionarios .info li > span{float:left;margin-top:-4px;margin-right:8px}
+
+/* CONCESSIONARIOS */
+.top_concessionarios{color:#fff;clear:both;margin-bottom:20px;background:#ff7707/*min-height:345px*/}
+.ie7 .top_concessionarios{overflow:hidden}
+.top_concessionarios h1{font-size:4.2em;margin-top:10px;margin-bottom:10px;font-family:'TitilliumText25L600wt', sans-serif;font-weight:normal}
+.top_concessionarios .content_right{padding-left:40px;overflow:hidden}
+.top_concessionarios .ind{font-size:3.0em;text-transform:uppercase;background:url(../img/seta_esq.png) left center no-repeat;margin-left:-30px;margin-top:0;padding-left:30px;font-family:'TitilliumText25L400wt', sans-serif;}
+.top_concessionarios .ind span{display:block;font-size:0.7em}
+.top_concessionarios .acesso_rapido{margin-left:-40px;border-top:solid 1px #ffad6c;padding:40px}
+.top_concessionarios .acesso_rapido .title{font-size:1.8em;text-transform:uppercase;display:block;padding-bottom:18px;font-family:'TitilliumText25L600wt', sans-serif;font-weight:normal}
+.tit_distrito{text-transform:uppercase;font-size:2.2em}
+.map_distritos{background:#80858B;padding:13px 70px;float:left;position:relative}
+.map_distritos img{display:block}
+.map_distritos .canto{display:block;position:absolute;bottom:-12px;left:30px;width:22px;height:12px;background:url(../img/canto_mapa.png) no-repeat}
+
+.lista_stands{list-style:none;margin:0;padding:0 0 30px}
+.ie7 .lista_stands{margin:0}
+.lista_stands > li:first-child{margin-top:0;border-top:none;padding-top:0}
+.lista_stands > li{margin-top:30px;border-top:solid 1px #d2d4d6;padding-top:30px}
+.lista_stands img{float:left;margin-right:15px;width:215px}
+.lista_stands .title{font-size:1.6em;margin-top:0}
+.lista_stands .title a{text-decoration:none}
+.lista_stands .title:hover{color:#ff7707}
+.lista_stands .descricao{font-size:1.1em;overflow:hidden;min-height:135px;position:relative}
+.lista_stands .items_stans{overflow:hidden}
+.lista_stands .info{list-style:none;padding:0;overflow:hidden;padding:0;margin:0}
+.lista_stands .info li{background:url(../img/ic_contacts.png) no-repeat;height:16px;line-height:1.6;padding-left:25px;display:inline;float:left;margin:0 30px 12px 0}
+.lista_stands .morada{background-position:0 -32px!important;width:100%}
+.lista_stands .telef{background-position:0 -48px!important}
+.lista_stands .fax{background-position:0 -16px!important}
+.lista_stands .email{background-position:0 0!important}
+.lista_stands .bt_contactar{font-size:1.3em;display:block;float:right;padding:16px 16px;width:230px;margin-top:-5px}
+.lista_stands .partilhar{position:absolute;bottom:0}
+.lista_stands .partilhar a{text-decoration:none;display:block;line-height:1.4;font-size:1.2em}
+.lista_stands .partilhar a .ic_share{padding-right:2px}
+.lista_stands .partilhar a:hover .ic_share{background-position:-16px -80px}
+.lista_stands .fb-like{position:absolute;left:80px;bottom:0}
+
+/* ERROR PAGE */
+.ic_alert{display:block;float:left;margin-right:10px;width:83px;height:76px;background:url(../img/404/ic_alert.png) no-repeat center center}
+.ic_maintenance{display:block;float:left;margin-right:10px;width:83px;height:76px;background:url(../img/error/ic_maintenance.png) no-repeat center center}
+.bg_404{margin-top:10px;width:989px;height:640px;background:url(bg_404.jpg) no-repeat center top}
+.bg_error{margin-top:10px;width:989px;height:640px;background:url(bg_error.jpg) no-repeat center top}
+.content_error{position:absolute;left:35px;top:40px;width:480px}
+.content_error .info{font-size:1.2em;overflow:hidden}
+.content_error .info h1{font-size:1.50em;font-family:'TitilliumText25L400wt', sans-serif;text-transform:uppercase;margin-top:15px;margin-bottom:0}
+.content_error .info p{line-height:1.3;margin-top:5px}
+.content_error .info a{color:#05447f}
+
+/* SELECT BOX*/
+.selectbox{display:block;position:relative;padding:5px 10px;background-color:#dc6706}
+.js .selectbox{background:#dc6706 url(../img/seta_combo.png) no-repeat top right}
+.selectbox span{color:#fff;font-size:1.1em;display:block}
+.no-js .selectbox span{display:none}
+.selectbox select{font-size:1.1em;width:100%}
+.js .selectbox select{position:absolute;top:6px;left:0;border:none;opacity:0}
+.no-js .selectbox select{border-width:1px}
+.ie7 .selectbox select, .ie8 .selectbox select{filter:alpha(opacity=0)}
+
+.form-validate label strong{display:inline-block;margin-bottom:5px}
+.form-validate label{margin-bottom:10px}
+/* erros formulario*/
+.erros p{font-size:1.2em;color:#b94a48;margin:5px 0}
+.erros {padding: 8px 35px 8px 14px;margin-bottom: 20px;text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);background-color: #f2dede;border: 1px solid #f2dede;-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;display:none}
+
+
+/*
+// Backoffice styles
+*/
+/* ESTRUTURA */
+.bo .est > header .logo{padding-left:10px}
+.bo .est > header .logo > .title{font-family:Arial, Helvetica, sans-serif}
+.bo .est > header .logo > .title strong{font-family:Arial, Helvetica, sans-serif}
+
+.bo .est > header .links{padding-right:10px}
+.bo .est > header .links > a, .bo .est > header .links > input{color:#fff;font-size:1.1em;line-height:1.3;text-decoration:none;text-transform:uppercase;display:block;float:left;margin:0;margin-left:10px;border:none;padding:2px 15px;background-color:#ff7707;
+-moz-box-sizing:border-box;
+-webkit-box-sizing:border-box;
+box-sizing:border-box;
+}
+.bo .est > header .links > input{background-color:#a5a5a5}
+.ie7 .bo .est > header .links > input{padding:0 5px 1px}
+
+.bo .est > header nav{margin-top:25px;background-color:#70767d}
+.bo .est > header nav ul{margin:0;padding:0;list-style:none}
+.bo .est > header nav ul > li{display:inline}
+.bo .est > header nav a{color:#fff;font-size:1.4em;font-weight:bold;text-decoration:none;text-transform:uppercase;display:inline-block;padding:8px 20px}
+.bo .est > header nav a:hover, .bo .est > header nav a.active{background-color:#ff7707}
+
+.bo .est > header .top_menu{margin-top:0;border-bottom:5px solid #d2d4d6;padding:8px 0;background-color:transparent}
+.bo .est > header .top_menu > a{color:#70767d;font-size:1.0em;font-family:Arial, Helvetica, sans-serif;font-weight:bold;text-decoration:none;text-transform:uppercase;display:inline;float:none;margin-left:10px;padding:0 0 0 14px}
+.bo .est > header .top_menu > a:hover, .bo .est > header .top_menu > a.active{color:#70767d;background:url(../img/arrows.png) no-repeat 0 -28px}
+
+.bo .est > footer{margin-left:0}
+
+/* CONTEUDO */
+.bo .main_content wsa div{font-size:12px}
+.bo .main_content table tr > td.basictext, .bo .main_content table form > table tr > td.basictext{font-size:12px;font-weight:bold;text-align:left;text-transform:uppercase;display:block;float:left;clear:both}
+.ie7 .bo .main_content table tr > td.basictext{white-space:nowrap}
+.ie8 .bo .main_content table tr > td.basictext, .ie9 .bo .main_content table tr > td.basictext, .bo .main_content table > form ~ tbody > tr > td.basictext{width:auto}
+.bo .main_content table tr > td.basictext + td.basictext{padding-bottom:20px}
+.bo .main_content table tr > td.basictext + td.basictext *{font-weight:normal}
+.bo .oHeader{font-weight:bold;text-transform:none;background:none #b7babe}
+.bo .oHeader > a{color:#fff!important}
+.bo .oHeader > img{left:5px}
+.bo .basicText b{font-weight:bolder}
+.bo .ibutton, .bo .adminButton{color:#fff;font-size:1.1em;font-weight:bold;text-transform:uppercase;display:block;float:right;border:none;padding:2px 15px;background-color:#05447f;
+-moz-box-sizing:border-box;
+-webkit-box-sizing:border-box;
+box-sizing:border-box;}
+.bo .adminButton[value=" Delete "]{background-color:#a5a5a5}

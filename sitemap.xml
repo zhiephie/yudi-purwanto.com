@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://yudi-purwanto.com/</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/tutorial</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/project</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/ebooks</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/about</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/auth/signin</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/show/detail/membuat-rss-di-codeigniter</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/category/show/php</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/author/id/1</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/tag/show/rss</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/tag/show/ci</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/show/detail/install-lamp-server-di-ubuntu-1404</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/category/show/others</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/tag/show/lamp</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/show/detail/berbagi-source-code-web-blog</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/tag/show/freebie</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/show/detail/integrasi-syntax-highlighter-di-tinymce</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/tag/show/highligter</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/tag/show/tinymce</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/show/detail/cara-membuat-virtual-host-di-apache</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/tag/show/virtualhost</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/popular</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/project/show/pt-jaya-kreasi-putra-indonesia</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/project/show/pt-bms-profesional</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/project/show/arya-forex</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/project/show/jawa-trading</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/project/show/percetakan-jakarta</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/project/show/naturally-plus</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/project/show/psikolog-andacom</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/auth/signup</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/auth/restore</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/pdf/generate/membuat-rss-di-codeigniter</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/pdf/generate/install-lamp-server-di-ubuntu-1404</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/pdf/generate/berbagi-source-code-web-blog</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/pdf/generate/integrasi-syntax-highlighter-di-tinymce</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://yudi-purwanto.com/pdf/generate/cara-membuat-virtual-host-di-apache</loc>
+  <changefreq>always</changefreq>
+</url>
+</urlset>

@@ -1,0 +1,50 @@
+.padding20 {
+  padding: 20px;
+}
+
+.download{
+ 
+  padding: 12px 12px;
+  margin:23px;
+  margin-top:5px;
+  text-align: center;
+  vertical-align: middle !important;
+  border: 2px solid #ffffff;
+  border-radius: 0;
+  display: inline-block;
+  outline: none;
+  font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: left;
+  font-size: 14pt;
+  width: 400px;
+}
+
+.download:hover{
+  box-shadow: 0 2px 6px rgba(0, 0, 255, 0.3), 0 3px 8px rgba(255, 255, 0, 0.2);
+}
+
+.image2 {
+  padding: 3px;
+  margin: 3px 5px 3px 0;
+  float: left;
+}
+
+.submitButton2{
+  color:#fff;
+  font-size:12px;
+  padding:5px;
+  border:1px solid #cccccc;
+  background-color:#008287;
+  cursor:pointer;
+  text-align:center;
+}
+
+.submitButton2:hover{
+  border-color:#dddddd;
+  color:#fff;
+  background-color:#555555;
+}
+
+/* End */

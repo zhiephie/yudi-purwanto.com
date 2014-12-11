@@ -1,0 +1,79 @@
+
+/*------------------------------------------------------------------
+
+[FAQ Page]
+
+	Project:		Base Admin
+	Version:		1.0
+	Last change:	05/21/2012
+	Assigned to:	Rod Howard (rh)
+	
+
+-------------------------------------------------------------------*/
+
+
+
+
+.faq-search {
+	margin-bottom: 2em;
+	
+	text-align: right;
+}
+
+.faq-search input {
+	width: 100%;
+	display: block;
+}
+
+
+
+.faq-empty {
+	display: none;
+}
+
+.faq-list {
+	padding: 0;
+	margin: 0em 0 0;
+	
+	list-style: none;	
+}
+
+.faq-list li {
+	display: table;
+	margin-bottom: 0em;
+}
+
+.faq-icon {
+	display: table-cell;
+	padding-right: 1.25em;
+	/*vertical-align: top;*/
+}
+
+.faq-text {
+	display: table-cell;
+	/*vertical-align: top;*/
+	
+}
+
+.faq-number {
+	width: 42px;
+	height: 42px;
+	
+	font-size: 18px;
+	font-weight: 600;
+	text-align: center;
+	line-height: 35px;
+	color: #FFF;
+	
+	background: #484848;
+	/*
+	background asli  #F90
+	*/
+	border: 3px solid #FFF;
+	
+	box-shadow: 1px 1px 3px rgba(0,0,0,.4);
+	
+	border-radius: 100px;
+	
+	text-shadow: 1px 1px 2px rgba(0,0,0,.4);
+}
