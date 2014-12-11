@@ -49,8 +49,8 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'yudipurw_str4w';
-$db['default']['password'] = 'jailbodyinside15';
+$db['default']['username'] = 'username';
+$db['default']['password'] = 'password';
 $db['default']['database'] = 'yudipurw_allversion';
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
