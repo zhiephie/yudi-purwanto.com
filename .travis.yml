@@ -1,5 +1,8 @@
 language: php
-branches:
-  except:
-    - 2.1-stable
-    - master
+
+php:
+  - 5.5
+  - 5.6
+  - 7
+
+script: phpunit
